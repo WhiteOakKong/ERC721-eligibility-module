@@ -158,32 +158,38 @@ contract ERC721Eligibility is HatsEligibilityModule {
         }
     }
 
-    /**
-     * //STANDARD IMPLEMENTATION FOR REFERENCE
-     * function getWearerStatus(address _wearer,uint256 /* _hatId ) public view override returns (bool eligible, bool
-     * standing) {
-     *     //standing always returns true
-     *     standing = true;
-     *
-     *     // set interface for ERC721 token
-     *     IERC721 token = TOKEN();
-     *
-     *     //cache the length of eligibleTokens
-     *     uint256 len = eligibleTokens.length;
-     *
-     *     //interate through the array of eligible token IDs. If any of them are owned by the _wearer, they are
-     * eligible.
-     *     // The loop breaks upon finding the first eligible token.
-     *     for (uint256 i = 0; i < len; i++) {
-     *         token.ownerOf(eligibleTokens[i]) returns (address owner) {
-     *             if (owner == _wearer) {
-     *                 eligible = true;
-     *                 break;
-     *             }
-     *         }
-     *     }
-     * }
-     */
+    // //STANDARD IMPLEMENTATION FOR REFERENCE
+    // function getWearerStatus(
+    //     address _wearer,
+    //     uint256 /* _hatId*/
+    // )
+    //     public
+    //     view
+    //     override
+    //     returns (bool eligible, bool standing)
+    // {
+    //     //standing always returns true
+    //     standing = true;
+
+    //     // set interface for ERC721 token
+    //     IERC721 token = TOKEN();
+
+    //     //cache the length of eligibleTokens
+    //     uint256 len = eligibleTokens.length;
+
+    //     //interate through the array of eligible token IDs. If any of them are owned by the _wearer, they are eligible.
+    //     // The loop breaks upon finding the first eligible token.
+    //     for (uint256 i = 0; i < len; i++) {
+    //         try token.ownerOf(eligibleTokens[i]) returns (address owner) {
+    //             if (owner == _wearer) {
+    //                 eligible = true;
+    //                 break;
+    //             }
+    //         } catch {
+    //             continue;
+    //         }
+    //     }
+    // }
 
     function getAllEligibleTokens() external view returns (uint256[] memory) {
         return eligibleTokens;
